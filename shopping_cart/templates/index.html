@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--<html lang="">-->
+<!--&lt;!&ndash; To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations &ndash;&gt;-->
+<!--<head>-->
+<!--<title>Sislaf</title>-->
+<!--<meta charset="utf-8">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<!--<link href="{% static 'hm/layout/styles/layout.css'%}" rel="stylesheet" type="text/css" media="all">-->
+<!--</head>-->
+<!--<body id="top">-->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('{% static 'hm/images/demo/backgrounds/bg.jpg' %}');">
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--  <div class="wrapper row0">-->
+<!--    <div id="topbar" class="hoc clear">-->
+
+<!--      <div class="fl_right">-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--        <ul class="nospace">-->
+
+<!--          <li id="searchform">-->
+<!--            <div>-->
+<!--              <form action="#" method="post">-->
+<!--                <fieldset>-->
+<!--                  <legend>Quick Search:</legend>-->
+<!--                  <input type="text" placeholder="Enter search term&hellip;">-->
+<!--                  <button type="submit"><i class="fas fa-search"></i></button>-->
+<!--                </fieldset>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--  <div class="wrapper row1">-->
+<!--    <header id="header" class="hoc clear">-->
+<!--      <div id="logo" class="fl_left">-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--        <h1><a href="index.html">AVODHA SHOPPING</a></h1>-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--      </div>-->
+<!--      <nav id="mainav" class="fl_right">-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--        <ul class="clear">-->
+<!--          <li class="active"><a href="index.html">Home</a></li>-->
+<!--          <li><a class="drop" href="#">Pages</a></li>-->
+
+<!--        </ul>-->
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--      </nav>-->
+<!--    </header>-->
+<!--  </div>-->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear">
+
+<!--            <ul>-->
+<!--              <li><a href="/">All products</a> </li>-->
+<!--              {% for i in ct %}-->
+<!--              <li><a class="drop" href={{i.get_url}}>{{i.name}}</a> </li>-->
+<!--              {% endfor %}-->
+<!--            </ul>-->
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">QUALITY FOOD ITEMS</h3>
+      <p>Register with us and have quality food items at your door step.</p>
+      <footer>
+
+      </footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+
+<div class="wrapper row3">
+  <main class="hoc container clear">
+
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for i in pg.object_list %}
+        <li class="one_third">
+          <figure><a class="imgover" href={{i.get_url}}><img src="{{i.img.url}}" style="height:200px;" alt=""></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+<!--              <p>{{i.desc|truncatewords:5}}</p>-->
+              <p>Price:{{i.price}} Rs/-</p>
+<!--              <p> Stock left:{{i.stock}}</p>-->
+            </figcaption>
+          </figure>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <center>
+     <div class="mx-auto">
+        <div class="text-center">
+            {% for p in pg.paginator.page_range %}
+            <a href="?page={{p}}" class="btn btn-light btn-sm {% if pg.number == p %}activate{% endif %}">{{p}}</a>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    </center>
+<!--    <h1>paginator</h1>-->
+    <hr class="btmspace-80">
+
+    <div class="clear"></div>
+  </main>
+</div>
+
+</div>
+<!--<script src="{% static 'hm/layout/scripts/jquery.min.js' %}"></script>-->
+<!--<script src="{% static 'hm/layout/scripts/jquery.backtotop.js' %}"></script>-->
+<!--<script src="{% static 'hm/layout/scripts/jquery.mobilemenu.js' %}"></script>-->
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

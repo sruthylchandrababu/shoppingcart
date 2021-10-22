@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+<div class="row mx-auto">
+<p class="text-center">You are searched for:{{qr}}</p><br>
+  </div>
+<div class="wrapper row3">
+  <main class="hoc container clear">
+
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for i in pr %}
+        <li class="one_third">
+          <figure><a class="imgover" href={{i.get_url}}><img src="{{i.img.url}}" style="height:200px;" alt=""></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+<!--              <p>{{i.desc|truncatewords:5}}</p>-->
+              <p>Price:{{i.price}} Rs/-</p>
+              <p> Stock left:{{i.stock}}</p>
+            </figcaption>
+          </figure>
+        </li>
+        {% empty %}
+        <div class="row mx-auto">
+           <p class="text-center">0 results found</p>
+        </div>
+
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+</div>
+  </center>
+{% endblock %}
